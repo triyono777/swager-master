@@ -12,8 +12,8 @@ import (
 type Order struct {
 	OrderID      string    `json:"orderID" example:"1"`
 	CustomerName string    `json:"customerName" example:"triyono" `
-	OrderedAt    time.Time `json:"orderedAt" example:"2019-11-09" `
-	Items        []Item    `json:"items" example:"2019-11-09" `
+	OrderedAt    time.Time `json:"orderedAt" example:"2019-11-09T21:21:46+00:00" `
+	Items        []Item    `json:"items"  `
 }
 
 type Item struct {

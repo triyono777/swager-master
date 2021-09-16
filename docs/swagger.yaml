@@ -1,0 +1,61 @@
+basePath: /
+definitions:
+  main.Item:
+    properties:
+      description:
+        example: randomDescription
+        type: string
+      itemID:
+        example: 1xx1
+        type: string
+      quantity:
+        example: "1"
+        type: string
+    type: object
+  main.Order:
+    properties:
+      customerName:
+        example: triyono
+        type: string
+      items:
+        items:
+          $ref: '#/definitions/main.Item'
+        type: array
+      orderID:
+        example: "1"
+        type: string
+      orderedAt:
+        example: "2019-11-09T21:21:46+00:00"
+        type: string
+    type: object
+host: localhost:9999
+info:
+  contact:
+    email: testing@gmail.com
+    name: API Support
+  description: This is a sample service for managing orders
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Orders API
+  version: "1.0"
+paths:
+  /orders:
+    get:
+      consumes:
+      - application/json
+      description: get all orders
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Order'
+            type: array
+      summary: Get detail all order
+      tags:
+      - orders
+swagger: "2.0"
