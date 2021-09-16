@@ -58,4 +58,84 @@ paths:
       summary: Get detail all order
       tags:
       - orders
+    post:
+      consumes:
+      - application/json
+      description: Create a new order with the input paylod
+      parameters:
+      - description: Create order
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/main.Order'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Order'
+      summary: Create a new order
+      tags:
+      - orders
+  /orders/{orderId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete the order corresponding to the input orderId
+      parameters:
+      - description: ID of the order to be deleted
+        in: path
+        name: orderId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      summary: Delete order identified by the given orderId
+      tags:
+      - orders
+    get:
+      consumes:
+      - application/json
+      description: Get details of order corresponding to the input orderId
+      parameters:
+      - description: ID of the order
+        in: path
+        name: orderId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Order'
+      summary: Get details for a given orderId
+      tags:
+      - orders
+    put:
+      consumes:
+      - application/json
+      description: Update the order corresponding to the input orderId
+      parameters:
+      - description: ID of the order to be updated
+        in: path
+        name: orderId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Order'
+      summary: Update order identified by the given orderId
+      tags:
+      - orders
 swagger: "2.0"
