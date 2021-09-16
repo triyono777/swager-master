@@ -28,7 +28,7 @@ definitions:
         example: "2019-11-09T21:21:46+00:00"
         type: string
     type: object
-host: localhost:9999
+host: localhost:8081
 info:
   contact:
     email: testing@gmail.com

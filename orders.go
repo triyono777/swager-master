@@ -6,6 +6,7 @@ import (
 	"github.com/swaggo/http-swagger"
 	"log"
 	"net/http"
+	_ "swager-master/docs"
 	"time"
 )
 
@@ -32,7 +33,7 @@ var orders []Order
 // @contact.email testing@gmail.com
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-// @host localhost:9999
+// @host localhost:8081
 // @BasePath /
 
 func main() {
@@ -44,7 +45,7 @@ func main() {
 	//router.HandleFunc("/orders/{orderId}",updateOrder).Methods("PUT")
 	//router.HandleFunc("/orders/{orderId}",deleteOrder).Methods("DELETE")
 	router.PathPrefix("/swagger").Handler(httpSwagger.WrapHandler)
-	log.Fatal(http.ListenAndServe(":9999", router))
+	log.Fatal(http.ListenAndServe(":8081", router))
 }
 
 // GetOrders godoc
